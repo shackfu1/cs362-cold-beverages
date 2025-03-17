@@ -26,4 +26,11 @@ describe 'Has a capacity and water volume' do
     reservoir.drain(3)
     expect(reservoir.current_water_volume).to eq(5)
   end
+
+  it 'cannot cause water volume to become negative through drain method' do
+    reservoir = WaterReservoir.new(10,8)
+    reservoir.drain(10)
+    expect(reservoir.current_water_volume).to eq(0)
+  end
+
 end
